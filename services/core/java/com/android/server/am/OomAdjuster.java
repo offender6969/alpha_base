@@ -2089,7 +2089,7 @@ public class OomAdjuster {
                     ProcessRecord client = cr.binding.client;
                     final ProcessStateRecord cstate = client.mState;
                     if (computeClients) {
-                        computeOomAdjLSP(client, cachedAdj, topApp, doingAll, now,
+                        computeOomAdjLSP(client, cycleReEval ? cstate.getCurRawAdj() : cachedAdj, topApp, doingAll, now,
                                 cycleReEval, true);
                     } else {
                         cstate.setCurRawAdj(cstate.getCurAdj());
@@ -2405,7 +2405,7 @@ public class OomAdjuster {
                     continue;
                 }
                 if (computeClients) {
-                    computeOomAdjLSP(client, cachedAdj, topApp, doingAll, now, cycleReEval, true);
+                    computeOomAdjLSP(client, cycleReEval ? cstate.getCurRawAdj() : cachedAdj, topApp, doingAll, now, cycleReEval, true);
                 } else {
                     cstate.setCurRawAdj(cstate.getCurAdj());
                     cstate.setCurRawProcState(cstate.getCurProcState());
