@@ -412,6 +412,7 @@ cc_library_shared {
     lto: {
         full: true,
     },
+    whole_program_vtables: true, // Requires LTO
 }
 
 cc_library_headers {
