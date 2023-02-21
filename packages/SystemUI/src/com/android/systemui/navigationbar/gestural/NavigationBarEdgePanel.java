@@ -294,7 +294,6 @@ public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPl
     public NavigationBarEdgePanel(
             Context context,
             LatencyTracker latencyTracker,
-            VibratorHelper vibratorHelper,
             @Background Executor backgroundExecutor,
             DisplayTracker displayTracker) {
         super(context);
