@@ -79,7 +79,7 @@ private fun PlaybackState.computePosition(duration: Long): Long {
 /** ViewModel for seek bar in QS media player. */
 class SeekBarViewModel
 @Inject
-constructor
+constructor(
     private val context: Context,
     @Background private val bgExecutor: RepeatableExecutor,
     private val falsingManager: FalsingManager,
@@ -251,6 +251,7 @@ constructor
                 seekAvailable = false,
                 playing = false,
                 scrubbing = false,
+                enableSquiggle = false,
                 elapsedTime = position,
                 duration = 100,
             )
