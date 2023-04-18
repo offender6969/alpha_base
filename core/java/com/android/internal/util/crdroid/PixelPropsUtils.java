@@ -109,7 +109,8 @@ public class PixelPropsUtils {
             "com.madfingergames.legends",
             "com.mobile.legends",
             "com.pearlabyss.blackdesertm",
-            "com.pearlabyss.blackdesertm.gl"
+            "com.pearlabyss.blackdesertm.gl",
+            "com.ea.gp.fifamobile"
     };
 
     // Packages to Spoof as Xperia 5
