@@ -290,8 +290,34 @@ public class NavigationBarEdgePanel extends View implements NavigationEdgeBackPl
             };
     private BackCallback mBackCallback;
 
-    @Inject
-    public NavigationBarEdgePanel(
+    /**
+     * Injectable instance to create a new NavigationBarEdgePanel.
+     *
+     * Necessary because we don't have good handling of per-display contexts at the moment. With
+     * this, you can pass in a specific context that knows what display it is in.
+     */
+    public static class Factory {
+        private final LatencyTracker mLatencyTracker;
+        private final Executor mBackgroundExecutor;
+
+        @Inject
+        public Factory(
+                LatencyTracker latencyTracker,
+                @Background Executor backgroundExecutor) {
+            mLatencyTracker = latencyTracker;
+            mBackgroundExecutor = backgroundExecutor;
+        }
+
+        public NavigationBarEdgePanel create(Context context) {
+            return new NavigationBarEdgePanel(
+                context,
+                mLatencyTracker,
+                mBackgroundExecutor
+            );
+        }
+    }
+
+    NavigationBarEdgePanel(
             Context context,
             LatencyTracker latencyTracker,
             @Background Executor backgroundExecutor,
