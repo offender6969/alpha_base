@@ -56,7 +56,6 @@ import com.android.systemui.shared.rotation.RotationButtonController;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.CommandQueue.Callbacks;
 import com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer;
-import com.android.systemui.statusbar.policy.Offset;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.user.ui.binder.StatusBarUserChipViewBinder;
 import com.android.systemui.user.ui.viewmodel.StatusBarUserChipViewModel;

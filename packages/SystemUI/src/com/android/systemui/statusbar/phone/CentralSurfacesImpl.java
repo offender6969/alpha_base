@@ -700,7 +700,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     };
 
     private final SysUiState mSysUiState;
-    private final BurnInProtectionController mBurnInProtectionController;
 
     /**
      * Public constructor for CentralSurfaces.
@@ -803,9 +802,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             UserTracker userTracker,
             Provider<FingerprintManager> fingerprintManager,
             TunerService tunerService,
-            SysUiState sysUiState,
-            BurnInProtectionController burnInProtectionController
-    ) {
+            SysUiState sysUiState) {
         mContext = context;
         mNotificationsController = notificationsController;
         mFragmentService = fragmentService;
@@ -897,7 +894,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         statusBarWindowStateController.addListener(this::onStatusBarWindowStateChanged);
 
         mScreenOffAnimationController = screenOffAnimationController;
-        mBurnInProtectionController = burnInProtectionController;
 
         mShadeExpansionStateManager.addExpansionListener(this::onPanelExpansionChanged);
         mShadeExpansionStateManager.addFullExpansionListener(this::onShadeExpansionFullyChanged);
@@ -928,7 +924,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         wiredChargingRippleController.registerCallbacks();
 
         mLightRevealScrimViewModelLazy = lightRevealScrimViewModelLazy;
-        mBurnInProtectionController.setCentralSurfaces(this);
 
         // Based on teamfood flag, turn predictive back dispatch on at runtime.
         if (mFeatureFlags.isEnabled(Flags.WM_ENABLE_PREDICTIVE_BACK_SYSUI)) {
