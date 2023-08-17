@@ -97,8 +97,6 @@ public class PixelPropsUtils {
             "com.google.android.setupwizard"
     };
 
-    };
-
     private static volatile boolean sIsGms = false;
     private static volatile boolean sIsFinsky = false;
 
